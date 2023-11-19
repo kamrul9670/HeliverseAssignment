@@ -1,0 +1,95 @@
+<div id="app">
+  <div id="search-filter">
+    <input type="text" [(ngModel)]="searchText" id="search" placeholder="Search by Name">
+    <button (click)="searchUsers()">Search</button>
+    <br>
+    <select [(ngModel)]="selectedDomain" id="domain-filter">
+      <option value="">All Domains</option>
+      <option *ngFor="let domain of uniqueDomains" [value]="domain">{{ domain }}</option>
+    </select>
+    <select [(ngModel)]="selectedGender" id="gender-filter">
+      <option value="">All Genders</option>
+      <option *ngFor="let gender of uniqueGenders" [value]="gender">{{ gender }}</option>
+    </select>
+    <label>
+      <input type="checkbox" [(ngModel)]="onlyAvailable" id="availability-filter"> Available Only
+    </label>
+    <button (click)="applyFilters()">Apply Filters</button>
+    <button style="margin-left: 20px;" (click)="createTeam()">Create Team</button>
+
+
+    
+    <div class="team">
+      <div *ngIf="team.length > 0">
+        <h2>Team Details</h2>
+         
+          <ol> 
+            <li *ngFor="let member of team" let i="index"> {{ member.first_name }} - {{ member.domain }}</li>
+           </ol> 
+       
+      </div>
+
+  </div>
+    
+
+   
+
+  <div class="container">
+    <div class="row">
+
+  
+
+      <div *ngFor="let data of displayedUsers" class="col-md-4">
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-body">
+            <h5 class="card-title">#Id{{ data.id }}</h5>
+            <h5 class="card-title">{{ data.first_name }} {{ data.last_name }}</h5>
+            <p class="card-text">Email: {{ data.email }}</p>
+            <p class="card-text">Gender: {{ data.gender }}</p>
+            <p class="card-text">Domain: {{ data.domain }}</p>
+            <p class="card-text">Available: {{ data.available }}</p>
+           
+            <button *ngIf="data.available" (click)="addToTeam(data)">Add to Team</button>
+            <!-- <p>Available Debug: {{ data.available | json }}</p> -->
+
+
+          </div>
+        </div>
+
+        
+        
+      </div>
+
+
+      
+    </div>
+
+   
+  </div>
+
+
+
+  
+
+</div>
+
+
+<div class="he">
+  <ul class="pagination">
+  <li class="page-item">
+    <a class="page-link" href="#" (click)="changePage('prev')" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+  </li>
+  <ng-container *ngFor="let page of getPages(totalItems, perPage); let i = index">
+    <li class="page-item" [ngClass]="{'page-item': true, 'active': i === selectedPage, 'disabled': i === selectedPage }">
+      <a class="page-link" href="#" (click)="changePage(i)">{{ i + 1 }}</a>
+    </li>
+  </ng-container>
+  <li class="page-item">
+    <a class="page-link" href="#" (click)="changePage('next')" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+    </a>
+  </li>
+</ul>
+</div>

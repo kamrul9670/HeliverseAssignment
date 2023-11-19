@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+
+  .row {
+    display: flex;
+    gap: 30px;
+    margin: 10px 0; /* Add some margin between rows */
+    width: 90%;
+  }
+  
+
+
+.page-item.selected {
+    background-color: #007bff; /* Add your selected page color */
+    color: #fff; /* Add your selected page text color */
+
+
+  }
+  
+  .page-item.disabled {
+    pointer-events: none; /* Disable clicking on disabled pages */
+    opacity: 0.5; /* Add your disabled page opacity */
+  }
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+#search-filter {
+    margin-bottom: 20px;
+}
+
+
+
+.team {
+  border: 1px solid red;
+  height: auto;
+  width: 360px;
+  text-align: center;
+  margin-left: 750px;
+  position: absolute;
+  background-color:  aquamarine;
+  
+}
+
+.team ol {
+  list-style-position: inside; /* This ensures the list items are centered within the ol */
+}
+
+
+
+
+#team-details {
+    margin-top: 20px;
+}
+
+
+.he {
+
+
+  width: 80%;
+  margin-left: 10%;
+}
+
+.he ul li a 
+{
+
+  width: 20px;
+}
+
+
+
